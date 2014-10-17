@@ -1,9 +1,10 @@
 Liopleurodon
 ===
 
-This repository contains a series of miscellaneous projects, modules, sub-routines and R&D codes in 
-various languages. Once the projects within this repository become stable & feature-full enough for release
-they'll be moved to their own repositories. See http://www.thisishillman.co.uk for more information.
+This repository contains a series of miscellaneous projects, modules, and R&D codes in various languages,
+to assist in the creation of database driven website (for educational purposes).
+
+See http://www.thisishillman.co.uk for more information.
 
 > "Liopleurodon (_Lie-oh-ploor-oh-don_, meaning 'smooth-sided teeth') is a genus of large, carnivorous
 > marine reptile belonging to the Pliosauroidea, a clade of short-necked plesiosaurs. The two species of
