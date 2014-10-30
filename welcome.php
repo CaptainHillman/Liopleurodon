@@ -22,20 +22,20 @@ THE SOFTWARE. -->
     
     <head>
         <meta charset="UTF-8">
-        <title>Index</title>
+        <title>Welcome</title>
     </head>
     
     <body>
-        Please enter your personal details:
-        <br/>
         
-        <form action="welcome.php" method="post">
-            First Name : <input type="text" name="firstname"/>
-            <br/><br/>
-            Second Name: <input type="text" name="secondname"/>
-            <br/><br/>
-            <input type="submit" value="Submit!"/>
-        </form>
+        <?php
+            $firstname  = $_REQUEST['firstname'];
+            $secondname = $_REQUEST['secondname'];
+            echo("&nbsp;");
+            echo("Welcome to the page $secondname, $firstname!");
+            echo("&nbsp;");
+        ?>
+        
+        <a href="welcome.php?firstname=<?urlencode($_REQUEST['firstname'])?>&secondname=<?urlencode($_REQUEST['$secondname'])?>">A Link</a>
         
     </body>
     
