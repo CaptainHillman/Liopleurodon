@@ -1,2 +1,5 @@
-#Ignore Java Files
+# Ignore class files
 *.class
+
+# Ignore Maven produced outputs
+*/target/
