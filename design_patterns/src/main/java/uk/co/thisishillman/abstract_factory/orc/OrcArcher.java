@@ -23,6 +23,13 @@ import uk.co.thisishillman.abstract_factory.Hero;
 public class OrcArcher implements Hero {
 
     /**
+     * Protected constructor
+     */
+    protected OrcArcher() {
+        //Empty
+    }
+    
+    /**
      * Prints battle cry to System.out
      */
     @Override

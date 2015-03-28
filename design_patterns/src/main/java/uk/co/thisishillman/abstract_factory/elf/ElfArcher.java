@@ -22,7 +22,14 @@ import uk.co.thisishillman.abstract_factory.Hero;
  * @version 1.0
  */
 public class ElfArcher implements Hero {
-
+    
+    /**
+     * Protected constructor
+     */
+    protected ElfArcher() {
+        //Empty
+    }
+    
     /**
      * Prints battle cry to System.out
      */

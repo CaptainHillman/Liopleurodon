@@ -1,4 +1,4 @@
-/**
+/*
 * Copyright (c) Michael Hillman (thisishillman.co.uk)
 * 
 * This project by Michael Hillman is free software: you can redistribute it and/or modify it under the terms
@@ -10,31 +10,27 @@
 * You should have received a copy of the GNU General Public License along with this project.
 * If not, please see the GNU website.
 */
-package uk.co.thisishillman.abstract_factory.elf;
-
-import uk.co.thisishillman.abstract_factory.Hero;
+package uk.co.thisishillman.builder;
 
 /**
- * Elven Wizard Hero
+ * Example usage of the Builder design pattern.
  * 
  * @author Michael Hillman
  * @version 1.0
  */
-public class ElfWizard implements Hero {
-
-    /**
-     * Protected constructor
-     */
-    protected ElfWizard() {
-        //Empty
-    }
+public class Example {
     
     /**
-     * Prints battle cry to System.out
+     * Run Builder example
+     * 
+     * @param args command line arguments 
      */
-    @Override
-    public void battleCry() {
-        System.out.println("I am an Elven Wizard!");
+    public static void main(String[] args) {
+        WizardBuilder builder = new WizardBuilder();
+        
+        System.out.println(builder.buildHumanHealer());
+        System.out.println(builder.buildOrcishWarlock());
+        System.out.println(builder.buildElvishIllusionist());
     }
     
 }
