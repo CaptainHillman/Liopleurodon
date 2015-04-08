@@ -13,27 +13,19 @@
 package uk.co.thisishillman.prototype;
 
 /**
- * Example usage of the Prototype design pattern.
+ *
  * 
  * @author Michael Hillman
  * @version 1.0
  */
-public class Example {
+public abstract class Weapon implements Cloneable {
     
     /**
-     * Run Prototype example
      * 
-     * @param args command line arguments 
+     * @return
      */
-    public static void main(String[] args) {
-        Weapon sword = WeaponFactory.createSword();
-        Weapon bow = WeaponFactory.createBow();
-        Weapon axe = WeaponFactory.createAxe();
-        
-        System.out.println(sword.toString());
-        System.out.println(bow.toString());
-        System.out.println(axe.toString());
-    }
+    @Override
+    public abstract Object clone();
     
 }
-//End of class
+//End of Interface
