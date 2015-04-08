@@ -10,66 +10,48 @@
 * You should have received a copy of the GNU General Public License along with this project.
 * If not, please see the GNU website.
 */
-package uk.co.thisishillman.prototype;
+package uk.co.thisishillman.singleton;
 
 /**
- * 
+ * Singleton object to handle restricting access to GameWorld instances
  * 
  * @author Michael Hillman
  * @version 1.0
  */
-public class WeaponFactory {
+public class GameWorld {
     
     /**
-     * Prototype sword
+     * Single allowed instance
      */
-    private final static Weapon PROTO_SWORD;
+    private static GameWorld INSTANCE = null;
     
     /**
-     * Prototype bow
+     * Disallow creation of new objects
      */
-    private final static Weapon PROTO_BOW;
+    private GameWorld() {
+        // Do not allow new instances
+    }
     
     /**
-     * Prototype axesWeap
+     * Return the restricted GameWorld instance
+     * 
+     * @return 
      */
-    private final static Weapon PROTO_AXE;
+    public static GameWorld getInstance() {
+        if(INSTANCE == null) {
+           INSTANCE = new GameWorld(); 
+        }
+        return INSTANCE;
+    }
 
     /**
-     * Static initialiser
-     */
-    static {
-        PROTO_SWORD = new Sword();
-        PROTO_BOW   = new Bow();
-        PROTO_AXE   = new Axe();
-    }
-    
-    /**
-     * Create a new sword
      * 
      * @return 
      */
-    public static Weapon createSword() {
-        return (Weapon) PROTO_SWORD.clone();
-    }
-    
-    /**
-     * Create a new bow
-     * 
-     * @return 
-     */
-    public static Weapon createBow() {
-        return (Weapon) PROTO_BOW.clone();
-    }
-    
-    /**
-     * Create a new axe
-     * 
-     * @return 
-     */
-    public static Weapon createAxe() {
-        return (Weapon) PROTO_AXE.clone();
+    @Override
+    public String toString() {
+        return "Single GamneWorld Instance";
     }
     
 }
-//End of Interface.
+//End of class
