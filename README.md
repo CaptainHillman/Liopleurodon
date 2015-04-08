@@ -12,7 +12,13 @@ using various technologies, for testing/educational purposes. Once a project wit
 full realised, it will be migrated into a stand-alone repository with full documentation.
 
 Current projects within this repository:
+
 + Example implementation of common design patterns (_./design_patterns_)
+..+ [Abstract Factory](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/abstract_factory)
+..+ [Builder](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/builder)
+..+ [Factory Method](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/factory_method)
+..+ [Prototype](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/prototype)
+
 + Example implementation of common algorithms (_./algorithms_)
 
 > "Liopleurodon (_Lie-oh-ploor-oh-don_, meaning 'smooth-sided teeth') is a genus of large, carnivorous

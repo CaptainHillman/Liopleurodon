@@ -21,5 +21,5 @@ The Abstract Factory defines a factory method for each individual product. Each 
 In the example below, the Abstract Factory pattern is used to generate a series of fantasy heroes. The core interface (HeroFactory.java) declares the factory methods to create each type of hero. Each platform is then represented by factory classes using that interface to produce concrete hero classes of the appropriate type. You can see this in action in the UML class diagram below or via the "abstract_factory" sample code here.
 
 <p align="center">
-	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_prototype.jpg"/>
+	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_abstract_factory.jpg"/>
 </p>

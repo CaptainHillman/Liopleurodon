@@ -20,5 +20,5 @@ Typical use of the Prototype pattern involves declaring an abstract base class t
 In the example below a simple factory object is used to create new Weapon instances by cloning the pre-initialised prototype instances.
 
 <p align="center">
-	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_abstract_factory.jpg"/>
+	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_prototype.jpg"/>
 </p>
