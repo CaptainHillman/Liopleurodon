@@ -19,4 +19,6 @@ Typical use of the Prototype pattern involves declaring an abstract base class t
 ###### Example
 See a Java example of the Prototype design pattern in my GitHub repository here.
 
-![alt text](https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_prototype.jpg "Prototype Pattern")
+<p align="center">
+	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_prototype.jpg"/>
+</p>
