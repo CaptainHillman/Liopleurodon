@@ -17,8 +17,8 @@ Use the Prototype design pattern when...
 Typical use of the Prototype pattern involves declaring an abstract base class that specifies a virtual clone function. Then, instead of creating objects using the "new" keyword, simply call the clone operation from the desired prototypical instance.
 
 ###### Example
-See a Java example of the Prototype design pattern in my GitHub repository here.
+In the example below a simple factory object is used to create new Weapon instances by cloning the pre-initialised prototype instances.
 
 <p align="center">
-	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_prototype.jpg"/>
+	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_abstract_factory.jpg"/>
 </p>
