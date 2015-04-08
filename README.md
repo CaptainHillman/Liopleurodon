@@ -14,10 +14,10 @@ full realised, it will be migrated into a stand-alone repository with full docum
 Current projects within this repository:
 
 + Example implementation of common design patterns (_./design_patterns_)
-..+ [Abstract Factory](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/abstract_factory)
-..+ [Builder](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/builder)
-..+ [Factory Method](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/factory_method)
-..+ [Prototype](https://github.com/CaptainHillman/Liopleurodon/tree/develop/design_patterns/src/main/java/uk/co/thisishillman/prototype)
+	+ [Abstract Factory](#design_patterns/src/main/java/uk/co/thisishillman/abstract_factory)
+	+ [Builder](h#design_patterns/src/main/java/uk/co/thisishillman/builder)
+	+ [Factory Method](#design_patterns/src/main/java/uk/co/thisishillman/factory_method)
+	+ [Prototype](#design_patterns/src/main/java/uk/co/thisishillman/prototype)
 
 + Example implementation of common algorithms (_./algorithms_)
 
