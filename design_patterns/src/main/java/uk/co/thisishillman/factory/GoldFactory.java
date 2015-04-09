@@ -13,21 +13,30 @@
 package uk.co.thisishillman.factory;
 
 /**
- * Example usage of the Factory design pattern.
+ * Factory class to create gold
  * 
  * @author Michael Hillman
  * @version 1.0
  */
-public class Example {
+public final class GoldFactory {
     
     /**
-     * Run Factory example
+     * Creates a new HumanGold instance
      * 
-     * @param args command line arguments 
+     * @return 
      */
-    public static void main(String[] args) {
-        
+    public static Gold smeltHumanGold() {
+        return new HumanGold();
+    }
+    
+    /**
+     * Creates a new ElvishGold instance
+     * 
+     * @return 
+     */
+    public static Gold smeltElvishGold() {
+        return new ElvishGold();
     }
     
 }
-//End of class
+//End of class.
