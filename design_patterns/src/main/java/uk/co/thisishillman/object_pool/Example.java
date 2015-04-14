@@ -12,6 +12,9 @@
 */
 package uk.co.thisishillman.object_pool;
 
+import uk.co.thisishillman.object_pool.potions.Potion;
+import uk.co.thisishillman.object_pool.potions.PotionMaster;
+
 /**
  * Example usage of the Object Pool design pattern.
  * 
@@ -26,7 +29,21 @@ public class Example {
      * @param args command line arguments 
      */
     public static void main(String[] args) {
+        Potion hPotion = PotionMaster.getPotion("Health");
+        Potion mPotion = PotionMaster.getPotion("Magic");
+        Potion sPotion = PotionMaster.getPotion("Stamina");
         
+        hPotion.drink();
+        mPotion.drink();
+        sPotion.drink();
+        
+        System.out.println("Returning potions to potion master...");
+        
+        PotionMaster.returnPotion(hPotion);
+        PotionMaster.returnPotion(mPotion);
+        PotionMaster.returnPotion(sPotion);
+        
+        PotionMaster.printSummary();
     }
     
 }

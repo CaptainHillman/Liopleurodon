@@ -16,9 +16,8 @@ Use the Factory design pattern when a class...
 Generally, Factory applications create objects via the use of static methods in commonly accessible factory classes. Factory methods generally return newly created instances through a common interface.
 
 ###### Example
+The example below shows a very simple implementation using a Factory class (representing a metal forgery) to instantiate two types of Gold without the client having any knowledge of the instantiation logic or the concrete class created.
 
 <p align="center">
 	<img style="border: 1px solid grey;" src="https://raw.githubusercontent.com/CaptainHillman/Liopleurodon/develop/design_patterns/diagram_factory.jpg"/>
 </p>
-
-The example below shows a very simple implementation using a Factory class (representing a metal forgery) to instantiate two types of Gold without the client having any knowledge of the instantiation logic or the concrete class created.
