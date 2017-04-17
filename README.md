@@ -15,7 +15,7 @@ Current projects within this repository:
 
 + Example implementation of common design patterns (_./design_patterns_)
 + Example implementation of common algorithms (_./algorithms_)
-++ Demonstrations of subdivisions (_./algorithms/subdivision_)
+	+ Demonstrations of subdivisions (_./algorithms/subdivision_)
 
 > "Liopleurodon (_Lie-oh-ploor-oh-don_, meaning 'smooth-sided teeth') is a genus of large, carnivorous
 > marine reptile belonging to the Pliosauroidea, a clade of short-necked plesiosaurs. The two species of
