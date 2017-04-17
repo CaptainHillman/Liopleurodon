@@ -3,3 +3,4 @@
 
 # Ignore Maven produced outputs
 */target/
+/algorithms/subdivision/target/

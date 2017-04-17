@@ -1,0 +1,222 @@
+/*
+* Liopleurodon Library - Misc projects, modules, and R&D in various languages.
+* Copyright (c) Michael Hillman (thisishillman.co.uk)
+* 
+* This file is part of the larger, Algorithms project. The Algorithms project is 
+* free software: you can redistribute it and/or modify it under the terms of the GNU General 
+* Public License as published by the Free Software Foundation, either version 3 of the License, 
+* or (at your option) any later version. This project is distributed in the hope that 
+* it will be useful for educational purposes, but WITHOUT ANY WARRANTY; without even the implied 
+* warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License along with the Algorithms project. 
+* If not, see the gnu website.
+*/
+package uk.co.thisishillman.subdivision.catmull_clark;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import uk.co.thisishillman.subdivision.geometries.Edge3D;
+import uk.co.thisishillman.subdivision.geometries.Face3D;
+import uk.co.thisishillman.subdivision.geometries.Polyhedron;
+import uk.co.thisishillman.subdivision.geometries.Vertex3D;
+
+/**
+ * This class contains utility methods used in the <code>CatmullClark</code> subdivision algorithm. Whilst the CatmullClark
+ * class contains the main logic, this class contains geometric traversal, numerical & search functions.
+ *
+ * @author M Hillman
+ * @version 1.0 (25/11/2013)
+ */
+public class CatmullClarkUtils {
+
+    /**
+     * Polyhedron object used as source for geometric calculations.
+     */
+    private Polyhedron polyhedron;
+
+    /**
+     * Initialises CatmullClarkUtils object with input polyhedron as the object being subdivided.
+     *
+     * @param polyhedron, Polyhedron object that's being subdivided.
+     */
+    public CatmullClarkUtils(Polyhedron polyhedron) {
+        this.polyhedron = polyhedron;
+    }
+
+    /**
+     * Given a edge, this method returns all faces that contain this edge.
+     *
+     * @param edge input Edge3D to find winging faces for.
+     * @return List<Face3D> list of winging faces (size should always be 2).
+     */
+    public List<Face3D> getWingingFaces(Edge3D edge) {
+        List<Face3D> faces = new ArrayList<>();
+        for (Face3D face : polyhedron.getFaceList()) {
+            if (face.containsEdge(true, edge) && !faces.contains(face)) {
+                faces.add(face);
+            }
+        }
+        return faces;
+    }
+
+    /**
+     * Returns the Catmull-Clark face point for the input face. Note: this method assumes the face is enclosed by it's edges.
+     *
+     * @param face, input Face3D to calculate face point for.
+     * @return Vertex3D, resulting Catmull-Clark face point.
+     */
+    public Vertex3D getFacePoint(Face3D face) {
+        return getAverage(face.getVertexList());
+    }
+
+    /**
+     * Calculates & returns the edge point for this edge as defined by Catmull & Clark as the average of this edge's midpoint
+     * and the face points of it's two winging faces.
+     *
+     * @param edge Edge3D, edge to calculate edge point for.
+     * @param fp1 Vertex3D, face point of first winging face.
+     * @param fp2 Vertex3D, face point of second winging face.
+     * @return Vertex3D, edge point for this edge.
+     */
+    public Vertex3D getEdgePoint(Edge3D edge, Vertex3D fp1, Vertex3D fp2) {
+        return getAverage(new ArrayList<>(Arrays.asList(edge.getMidpoint(), fp1, fp2)));
+    }
+
+    /**
+     * Given a vertex, this method returns a set of all edges in a particular face that contain this vertex.
+     *
+     * @param face Face3D face to search within.
+     * @param vertex Vertex3D to use for edge search.
+     * @return Set<Edge3D> list of edges in the input face that contain the input vertex.
+     */
+    public Set<Edge3D> getEdgesContainingVertex(Face3D face, Vertex3D vertex) {
+        Set<Edge3D> edges = new HashSet<>();
+        for (Edge3D edge : face.getEdgeList()) {
+            if (edge.containsVertex(vertex)) {
+                edges.add(edge);
+            }
+        }
+        return edges;
+    }
+
+    /**
+     * Given an input vertex, this method return a set of all faces in the polyhedron that contains the vertex.
+     *
+     * @param vertex input vertex to find containing faces for.
+     * @return Set<Face3D> all faces that contain the input vertex.
+     */
+    public Set<Face3D> getSurroundingFaces(Vertex3D vertex) {
+        Set<Face3D> faceList = new HashSet<>();
+        for (Face3D face : polyhedron.getFaceList()) {
+            if (face.containsVertex(vertex)) {
+                faceList.add(face);
+            }
+        }
+        return faceList;
+    }
+
+    /**
+     * Given an input vertex, this method return a set of all edges in the polyhedron that contains the vertex.
+     *
+     * @param vertex input vertex to find containing edge for.
+     * @return Set<Edge3D> all edges that contain the input vertex.
+     */
+    public Set<Edge3D> getSurroundingEdges(Vertex3D vertex) {
+        Set<Edge3D> edgeList = new HashSet<>();
+        for (Edge3D edge : polyhedron.getEdgeList()) {
+            if (edge.containsVertex(vertex) && !edgeList.contains(edge.reverse())) {
+                edgeList.add(edge);
+            }
+        }
+        return edgeList;
+    }
+
+    /**
+     * Given a collection of vertices, this method calculates the resulting average vertex.
+     *
+     * @param vertices collection of input vertices.
+     * @return resulting average vertex.
+     */
+    public Vertex3D getAverage(Collection<Vertex3D> vertices) {
+        float x = 0.0f;
+        float y = 0.0f;
+        float z = 0.0f;
+        for (Vertex3D vertex : vertices) {
+            x += vertex.getX();
+            y += vertex.getY();
+            z += vertex.getZ();
+        }
+        return new Vertex3D((x / vertices.size()), (y / vertices.size()), (z / vertices.size()));
+    }
+
+    /**
+     * Returns the valence of a give Vertex3D object, as in how many edges connect to that vertex.
+     *
+     * @param vertex Vertex3D to find valence of.
+     * @return int, valence of input Vertex3D.
+     */
+    public float getValence(Vertex3D vertex) {
+        float valence = 0;
+        for (Face3D face : polyhedron.getFaceList()) {
+            if (face.containsVertex(vertex)) {
+                valence += 1.0f;
+            }
+        }
+        return valence;
+    }
+
+    /**
+     * Given a vertex and scalar float this method returns the resulting vertex if the input vertex is divided by the scalar
+     * value.
+     *
+     * @param vert input vertex for division.
+     * @param scalar scalar to divide vertex by.
+     * @return Vertex3D, resulting vertex after division.
+     */
+    public Vertex3D getVertexDividedByScalar(Vertex3D vert, float scalar) {
+        float x = vert.getX();
+        float y = vert.getY();
+        float z = vert.getZ();
+        return new Vertex3D((float) (x / scalar), (float) (y / scalar), (float) (z / scalar));
+    }
+
+    /**
+     * Given a vertex and scalar float this method returns the resulting vertex if the input vertex is multiplied by the
+     * scalar value.
+     *
+     * @param vert input vertex for multiplication.
+     * @param scalar scalar to multiply vertex by.
+     * @return Vertex3D, resulting vertex after multiplication.
+     */
+    public Vertex3D getVertexMultipliedByScalar(Vertex3D vert, float scalar) {
+        float x = vert.getX() * scalar;
+        float y = vert.getY() * scalar;
+        float z = vert.getZ() * scalar;
+        return new Vertex3D(x, y, z);
+    }
+
+    /**
+     * Returns the sum vertex of an input array of vertex objects.
+     *
+     * @param vertices Vertex3D[] to sum.
+     * @return vertex representing the sum of input vertices.
+     */
+    public Vertex3D getVertexAddition(Vertex3D... vertices) {
+        float x = 0.0f;
+        float y = 0.0f;
+        float z = 0.0f;
+        for (Vertex3D vertice : vertices) {
+            x += vertice.getX();
+            y += vertice.getY();
+            z += vertice.getZ();
+        }
+        return new Vertex3D(x, y, z);
+    }
+
+}
+//End of class.

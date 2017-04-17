@@ -3,7 +3,7 @@ Liopleurodon
 
 Liopleurodon - Misc projects, modules, and R&D in various languages.
 
-Copyright (c) Michael Hillman (thisishillman.co.uk)
+Copyright (c) Michael Hillman (_thisishillman.co.uk_)
  
 ###### Project Information
 
@@ -15,6 +15,7 @@ Current projects within this repository:
 
 + Example implementation of common design patterns (_./design_patterns_)
 + Example implementation of common algorithms (_./algorithms_)
+++ Demonstrations of subdivisions (_./algorithms/subdivision_)
 
 > "Liopleurodon (_Lie-oh-ploor-oh-don_, meaning 'smooth-sided teeth') is a genus of large, carnivorous
 > marine reptile belonging to the Pliosauroidea, a clade of short-necked plesiosaurs. The two species of
@@ -33,4 +34,4 @@ Michael Hillman (thisishillman.co.uk)
 
 ###### Branch Information
 Current branches: master, develop
-	_Following Vincent Driessen's [branching model](http://nvie.com/posts/a-successful-git-branching-model/)_
+	(_Following Vincent Driessen's [branching model](http://nvie.com/posts/a-successful-git-branching-model/)_)
